@@ -6,6 +6,7 @@ This project provisions a production-ready Amazon EKS Disaster Recovery (DR) env
 
 The solution follows Infrastructure as Code (IaC) principles, allowing complete recreation of Kubernetes infrastructure and workloads in the event of a disaster.
 
+# Source :- https://devsecopsguru.in/kb/eks-disaster-recovery/
 ---
 
 ## Architecture
