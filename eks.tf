@@ -5,7 +5,6 @@ module "eks" {
   name               = var.cluster_name
   kubernetes_version = "1.33"
   endpoint_public_access  = true
-  depends_on = [ module.vpc ]
   # The IAM role that Terraform Cloud assumes (OIDC / dynamic credentials / workspace credentials) is not automatically given access to the cluster.
   enable_cluster_creator_admin_permissions = true
 
