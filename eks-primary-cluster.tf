@@ -37,8 +37,8 @@ module "eks_primary" {
 
   eks_managed_node_groups = {
     core = {
-      name           = "spot-node-group"
-      capacity_type  = "SPOT"
+      name           = "on-demand-group"
+      capacity_type  = "ON_DEMAND"
       instance_types = ["t3.medium"]
       min_size       = 1
       max_size       = 1
