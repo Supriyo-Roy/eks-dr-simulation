@@ -7,6 +7,7 @@ resource "helm_release" "velero_dr" {
   namespace        = "velero"
   create_namespace = true
   version          = var.velero_chart_version
+  depends_on       = [ module.eks_dr ,aws_eks_pod_identity_association.velero_dr]
 
   values = [
     yamlencode({

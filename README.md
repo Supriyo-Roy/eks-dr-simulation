@@ -66,24 +66,6 @@ Backs up:
 
 ---
 
-# Repository Structure
-
-```
-.
-├── addons.tf
-├── bastion.tf
-├── eks.tf
-├── providers.tf
-├── variables.tf
-├── vpc.tf
-├── outputs.tf
-├── versions.tf
-├── terraform.tfvars
-└── README.md
-```
-
----
-
 # Technologies Used
 
 - Terraform
@@ -135,8 +117,7 @@ Install the following tools before deployment.
 ```bash
 git clone <repository-url>
 
-cd eks-cluster-DR-Setup-Backup-Restore-Patterns-terraform
-```
+cd eks-dr-simulation
 
 ---
 
