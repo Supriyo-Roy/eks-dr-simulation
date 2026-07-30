@@ -1,14 +1,11 @@
 module "eks" {
-  source  = "terraform-aws-modules/eks/aws"
-  version = "~> 21.0"
-
-  name               = var.cluster_name
-  kubernetes_version = "1.33"
-  endpoint_public_access  = true
-  # The IAM role that Terraform Cloud assumes (OIDC / dynamic credentials / workspace credentials) is not automatically given access to the cluster.
-  enable_cluster_creator_admin_permissions = true
-
-  # EKS Addons
+  source                                    = "terraform-aws-modules/eks/aws"
+  version                                   = "~> 21.0"
+  count                                     = var.create_primary_cluster ? 1 : 0
+  name                                      = var.cluster_name
+  kubernetes_version                        = "1.33"
+  endpoint_public_access                    = true
+  enable_cluster_creator_admin_permissions  = true
   addons = {
     coredns = {}
     eks-pod-identity-agent = {
@@ -19,8 +16,8 @@ module "eks" {
       before_compute = true
     }
   }
-  vpc_id     = module.vpc.vpc_id
-  subnet_ids = module.vpc.private_subnets
+  vpc_id                                    = module.vpc.vpc_id
+  subnet_ids                                = module.vpc.private_subnets
   security_group_additional_rules = {
     ingress_bastion_allow = {
       description               = "Allow Bastion host to reach EKS API"
